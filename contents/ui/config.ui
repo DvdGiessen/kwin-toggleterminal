@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>KWin::ToggleTerminalConfigForm</class>
+    <widget class="QWidget" name="KWin::ToggleTerminalConfigForm">
+        <layout class="QGridLayout">
+            <item row="0" column="0">
+                <widget class="QLabel">
+                    <property name="text">
+                        <string>Window name prefix</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="1" column="0">
+                <widget class="QLineEdit" name="kcfg_windowNamePrefix">
+                    <property name="toolTip">
+                        <string>Prefix of the window name used for detecting the terminal.</string>
+                    </property>
+                    <property name="statusTip">
+                        <string>Window name prefix</string>
+                    </property>
+                    <property name="whatsThis">
+                        <string>Window name prefix</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="2" column="0">
+                <widget class="QLabel">
+                    <property name="text">
+                        <string>Window name suffix</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="3" column="0">
+                <widget class="QLineEdit" name="kcfg_windowNameSuffix">
+                    <property name="toolTip">
+                        <string>Suffix of the window name used for detecting the terminal.</string>
+                    </property>
+                    <property name="statusTip">
+                        <string>Window name suffix</string>
+                    </property>
+                    <property name="whatsThis">
+                        <string>Window name suffix</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="4" column="0">
+                <widget class="QLabel">
+                    <property name="text">
+                        <string>Launch command</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="5" column="0">
+                <widget class="QLineEdit" name="kcfg_launchCommand">
+                    <property name="toolTip">
+                        <string>Command for launching the terminal application if the window can not be found.</string>
+                    </property>
+                    <property name="statusTip">
+                        <string>Launch command</string>
+                    </property>
+                    <property name="whatsThis">
+                        <string>Launch command</string>
+                    </property>
+                </widget>
+            </item>
+        </layout>
+    </widget>
+</ui>

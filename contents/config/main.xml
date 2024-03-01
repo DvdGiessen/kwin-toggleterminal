@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name=""/>
+    <group name="">
+        <entry name="windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting the terminal</label>
+            <default>foot</default>
+        </entry>
+        <entry name="windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting the terminal</label>
+            <default></default>
+        </entry>
+        <entry name="launchCommand" type="String">
+            <label>Command for launching the terminal application if the window can not be found</label>
+            <default>/usr/bin/foot</default>
+        </entry>
+    </group>
+</kcfg>
