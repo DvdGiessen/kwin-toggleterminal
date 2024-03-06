@@ -58,7 +58,7 @@ function onCurrentTerminalWindowClosed(_topLevel, _deleted) {
 function setTerminal(client) {
     currentTerminal = client;
     currentTerminal.activeChanged.connect(onCurrentTerminalActiveChanged);
-    currentTerminal.windowClosed.connect(onCurrentTerminalWindowClosed);
+    currentTerminal.closed.connect(onCurrentTerminalWindowClosed);
 }
 function getTerminal() {
     if (currentTerminal !== null) {
@@ -86,7 +86,7 @@ function onClientAdded(client) {
 }
 function onClientRemoved(client) {
     if (currentTerminal === client) {
-        terminal = null;
+        currentTerminal = null;
     }
 }
 workspace.clientAdded.connect(onClientAdded);
