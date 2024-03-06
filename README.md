@@ -2,9 +2,9 @@
 
 KWin script for toggling your terminal with a global hotkey.
 
-*Note*: This is the README for version 1.x.x, which works on KDE Plasma 5. If
-you're using KDE Plasma 6, see version 2.x.x on the branch
-[`plasma6`](https://github.com/DvdGiessen/kwin-toggleterminal/tree/plasma6).
+*Note*: This is the README for version 2.x.x, which works on KDE Plasma 6. If
+you're using KDE Plasma 5, see version 1.x.x on the branch
+[`plasma5`](https://github.com/DvdGiessen/kwin-toggleterminal/tree/plasma5).
 
 ## Installation
 
@@ -102,7 +102,7 @@ A few recommendations to make it more seamless:
 ## License and contributing
 
 `kwin-toggleterminal` is free software licensed under the
-[GPLv3](https://github.com/DvdGiessen/kwin-toggleterminal/blob/plasma5/LICENSE).
+[GPLv3](https://github.com/DvdGiessen/kwin-toggleterminal/blob/plasma6/LICENSE).
 
 If you have fixed a bug or want to contribute a feature, feel free to open a
 pull request on [GitHub](https://github.com/DvdGiessen/kwin-toggleterminal).

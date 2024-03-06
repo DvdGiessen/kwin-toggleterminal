@@ -14,11 +14,11 @@ options.configChanged.connect(loadConfiguration);
 loadConfiguration();
 
 // Helper functions for detecting and launching terminal based on configuration
-function isTerminal(client) {
+function isTerminal(window) {
     return (
-        client.caption.substr(0, config.windowNamePrefix.length) === config.windowNamePrefix
+        window.caption.substr(0, config.windowNamePrefix.length) === config.windowNamePrefix
         &&
-        client.caption.substr(-1 * config.windowNameSuffix.length, config.windowNameSuffix.length) === config.windowNameSuffix
+        window.caption.substr(-1 * config.windowNameSuffix.length, config.windowNameSuffix.length) === config.windowNameSuffix
     );
 }
 function launchTerminal() {
@@ -32,13 +32,13 @@ function launchTerminal() {
 }
 
 // Functions for showing / hiding terminal
-function showTerminal(client) {
-    workspace.sendClientToScreen(client, workspace.activeScreen);
-    client.minimized = false;
-    workspace.activeClient = client;
+function showTerminal(window) {
+    workspace.sendClientToScreen(window, workspace.activeScreen);
+    window.minimized = false;
+    workspace.activeWindow = window;
 }
-function hideTerminal(client) {
-    client.minimized = true;
+function hideTerminal(window) {
+    window.minimized = true;
 }
 
 // State: currently detected terminal
@@ -55,8 +55,8 @@ function onCurrentTerminalWindowClosed(_topLevel, _deleted) {
 }
 
 // Getters/setters for the currently detected terminal
-function setTerminal(client) {
-    currentTerminal = client;
+function setTerminal(window) {
+    currentTerminal = window;
     currentTerminal.activeChanged.connect(onCurrentTerminalActiveChanged);
     currentTerminal.closed.connect(onCurrentTerminalWindowClosed);
 }
@@ -67,10 +67,10 @@ function getTerminal() {
         }
     }
     if (currentTerminal === null) {
-        // Fallback: try to find terminal amongst open clients
-        for (const client of workspace.clientList()) {
-            if (isTerminal(client)) {
-                setTerminal(client);
+        // Fallback: try to find terminal amongst open windows
+        for (const window of workspace.windowList()) {
+            if (isTerminal(window)) {
+                setTerminal(window);
                 break;
             }
         }
@@ -78,30 +78,30 @@ function getTerminal() {
     return currentTerminal;
 }
 
-// Handle client added and removed events
-function onClientAdded(client) {
-    if (currentTerminal === null && isTerminal(client)) {
-        setTerminal(client);
+// Handle window added and removed events
+function onWindowAdded(window) {
+    if (currentTerminal === null && isTerminal(window)) {
+        setTerminal(window);
     }
 }
-function onClientRemoved(client) {
-    if (currentTerminal === client) {
+function onWindowRemoved(window) {
+    if (currentTerminal === window) {
         currentTerminal = null;
     }
 }
-workspace.clientAdded.connect(onClientAdded);
-workspace.clientRemoved.connect(onClientRemoved);
+workspace.windowAdded.connect(onWindowAdded);
+workspace.windowRemoved.connect(onWindowRemoved);
 
 // Callback for the terminal hotkey
 function toggleTerminal() {
-    const client = getTerminal();
-    if (!client) {
+    const window = getTerminal();
+    if (!window) {
         launchTerminal();
     } else {
-        if (client.minimized) {
-            showTerminal(client);
+        if (window.minimized) {
+            showTerminal(window);
         } else {
-            hideTerminal(client);
+            hideTerminal(window);
         }
 	}
 }
