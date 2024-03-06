@@ -2,6 +2,10 @@
 
 KWin script for toggling your terminal with a global hotkey.
 
+*Note*: This is the README for version 1.x.x, which works on KDE Plasma 5. If
+you're using KDE Plasma 6, see version 2.x.x on the branch
+[`plasma6`](https://github.com/DvdGiessen/kwin-toggleterminal/tree/plasma6).
+
 ## Installation
 
 This script depends on a helper program to actually launch the terminal app via
@@ -15,13 +19,13 @@ to enable starting new instances of your terminal app.
 To install this script:
 
 ```sh
-kpackagetool5 -t KWin/Script -i .
+kpackagetool6 -t KWin/Script -i .
 ```
 
 To upgrade if already installed:
 
 ```sh
-kpackagetool5 -t KWin/Script -u .
+kpackagetool6 -t KWin/Script -u .
 ```
 
 ## Configuration
@@ -34,9 +38,9 @@ Management > KWin Scripts.
 Enable it, and optionally change the configuration to your own terminal. By
 default this script starts [`foot`](https://codeberg.org/dnkl/foot).
 
-You can configure the hotkey by going to System Settings > Shortcuts and
-searching for the "Toggle Terminal" action in the KWin category. Configure any
-custom shortcut you like.
+You can configure the hotkey by going to System Settings > Keyboard > Shortcuts
+and searching for the "Toggle Terminal" action in the KWin category. Configure
+any custom shortcut you like.
 
 (Note: KWin doesn't always correctly detect changes to the configuration. If
 your changes are not applied, run `qdbus org.kde.KWin /KWin reconfigure` or log
@@ -47,23 +51,23 @@ out and in again to restart KWin.)
 Enable the script:
 
 ```sh
-kwriteconfig5 --file kwinrc --group Plugins --key toggleterminalEnabled true
+kwriteconfig6 --file kwinrc --group Plugins --key toggleterminalEnabled true
 qdbus org.kde.KWin /KWin reconfigure
 ```
 
 Configure a hotkey for the KWin "Toggle Terminal" action:
 
 ```sh
-kwriteconfig5 --file kglobalshortcutsrc --group kwin --key ToggleTerminal 'Meta+`,none,Toggle Terminal'
+kwriteconfig6 --file kglobalshortcutsrc --group kwin --key ToggleTerminal 'Meta+`,none,Toggle Terminal'
 qdbus org.kde.KWin /KWin reconfigure
 ```
 
 To configure a different terminal:
 
 ```sh
-kwriteconfig5 --file kwinrc --group Script-toggleterminal --key windowNamePrefix foot
-kwriteconfig5 --file kwinrc --group Script-toggleterminal --key windowNameSuffix ''
-kwriteconfig5 --file kwinrc --group Script-toggleterminal --key launchCommand /usr/bin/foot
+kwriteconfig6 --file kwinrc --group Script-toggleterminal --key windowNamePrefix foot
+kwriteconfig6 --file kwinrc --group Script-toggleterminal --key windowNameSuffix ''
+kwriteconfig6 --file kwinrc --group Script-toggleterminal --key launchCommand /usr/bin/foot
 qdbus org.kde.KWin /KWin reconfigure
 ```
 
@@ -98,7 +102,7 @@ A few recommendations to make it more seamless:
 ## License and contributing
 
 `kwin-toggleterminal` is free software licensed under the
-[GPLv3](https://github.com/DvdGiessen/kwin-toggleterminal/blob/master/LICENSE).
+[GPLv3](https://github.com/DvdGiessen/kwin-toggleterminal/blob/plasma5/LICENSE).
 
 If you have fixed a bug or want to contribute a feature, feel free to open a
 pull request on [GitHub](https://github.com/DvdGiessen/kwin-toggleterminal).

@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Id": "toggleterminal",
-        "Version": "1.0",
+        "Version": "1.0.0",
         "Name": "Toggle Terminal",
         "Description": "Toggles terminal visibility using a hotkey.",
         "Category": "Windows and Tasks",
