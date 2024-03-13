@@ -33,9 +33,12 @@ function launchTerminal() {
 
 // Functions for showing / hiding terminal
 function showTerminal(window) {
+    const windowWasOnAllDesktops = window.onAllDesktops;
     workspace.sendClientToScreen(window, workspace.activeScreen);
+    window.onAllDesktops = true;
     window.minimized = false;
     workspace.activeWindow = window;
+    window.onAllDesktops = windowWasOnAllDesktops;
 }
 function hideTerminal(window) {
     window.minimized = true;
