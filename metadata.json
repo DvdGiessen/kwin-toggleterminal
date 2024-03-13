@@ -2,7 +2,7 @@
     "KPackageStructure": "KWin/Script",
     "KPlugin": {
         "Id": "toggleterminal",
-        "Version": "2.0.0",
+        "Version": "2.0.1",
         "Name": "Toggle Terminal",
         "Description": "Toggles terminal visibility using a hotkey.",
         "Category": "Windows and Tasks",
