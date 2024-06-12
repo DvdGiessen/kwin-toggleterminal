@@ -2,12 +2,14 @@
 const config = {
     windowNamePrefix: null,
     windowNameSuffix: null,
+    windowClass: null,
     command: null,
 };
 
 function loadConfiguration() {
     config.windowNamePrefix = readConfig('windowNamePrefix', 'foot').toString();
     config.windowNameSuffix = readConfig('windowNameSuffix', '').toString();
+    config.windowClass = readConfig('windowClass', '').toString();
     config.launchCommand = readConfig('launchCommand', '/usr/bin/foot').toString();
 }
 options.configChanged.connect(loadConfiguration);
@@ -19,6 +21,8 @@ function isTerminal(window) {
         window.caption.substr(0, config.windowNamePrefix.length) === config.windowNamePrefix
         &&
         window.caption.substr(-1 * config.windowNameSuffix.length, config.windowNameSuffix.length) === config.windowNameSuffix
+        &&
+        (config.windowClass === '' || window.resourceClass === config.windowClass)
     );
 }
 function launchTerminal() {

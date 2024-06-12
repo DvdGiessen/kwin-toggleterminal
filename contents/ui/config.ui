@@ -46,11 +46,31 @@
             <item row="4" column="0">
                 <widget class="QLabel">
                     <property name="text">
-                        <string>Launch command</string>
+                        <string>Window class</string>
                     </property>
                 </widget>
             </item>
             <item row="5" column="0">
+                <widget class="QLineEdit" name="kcfg_windowClassName">
+                    <property name="toolTip">
+                        <string>Exact window class used for detecting the terminal.</string>
+                    </property>
+                    <property name="statusTip">
+                        <string>Window class</string>
+                    </property>
+                    <property name="whatsThis">
+                        <string>Window class</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="6" column="0">
+                <widget class="QLabel">
+                    <property name="text">
+                        <string>Launch command</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="7" column="0">
                 <widget class="QLineEdit" name="kcfg_launchCommand">
                     <property name="toolTip">
                         <string>Command for launching the terminal application if the window can not be found.</string>
