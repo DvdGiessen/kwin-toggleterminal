@@ -3,7 +3,7 @@ const config = {
     windowNamePrefix: null,
     windowNameSuffix: null,
     windowClass: null,
-    command: null,
+    launchCommand: null,
 };
 
 function log(...data) {
