@@ -59,7 +59,7 @@ let currentTerminal = null;
 
 // Callback for hiding the terminal if focus is lost
 function onCurrentTerminalActiveChanged() {
-    if (currentTerminal !== null && !currentTerminal.active) {
+    if (currentTerminal !== null && !currentTerminal.active && !currentTerminal.minimized) {
         log('Current terminal window lost focus, hiding.');
         hideTerminal(currentTerminal);
     }
