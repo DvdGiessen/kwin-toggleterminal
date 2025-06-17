@@ -10,13 +10,13 @@
             <label>Suffix of the window name used for detecting the terminal</label>
             <default></default>
         </entry>
-        <entry name="windowClass" type="String">
-            <label>Exact window class used for detecting the terminal</label>
-            <default></default>
-        </entry>
         <entry name="launchCommand" type="String">
             <label>Command for launching the terminal application if the window can not be found</label>
             <default>/usr/bin/foot</default>
+        </entry>
+        <entry name="autoHideOnFocusLost" type="Bool">
+            <label>Auto-hide terminal when focus is lost</label>
+            <default>true</default>
         </entry>
     </group>
 </kcfg>

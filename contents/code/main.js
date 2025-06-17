@@ -2,20 +2,15 @@
 const config = {
     windowNamePrefix: null,
     windowNameSuffix: null,
-    windowClass: null,
-    launchCommand: null,
+    command: null,
+    autoHideOnFocusLost: true,
 };
-
-function log(...data) {
-    console.log('[ToggleTerminal]', ...data);
-}
 
 function loadConfiguration() {
     config.windowNamePrefix = readConfig('windowNamePrefix', 'foot').toString();
     config.windowNameSuffix = readConfig('windowNameSuffix', '').toString();
-    config.windowClass = readConfig('windowClass', '').toString();
     config.launchCommand = readConfig('launchCommand', '/usr/bin/foot').toString();
-    log('Configuration loaded:', JSON.stringify(config));
+    config.autoHideOnFocusLost = readConfig('autoHideOnFocusLost', true);
 }
 options.configChanged.connect(loadConfiguration);
 loadConfiguration();
@@ -26,18 +21,15 @@ function isTerminal(window) {
         window.caption.substr(0, config.windowNamePrefix.length) === config.windowNamePrefix
         &&
         window.caption.substr(-1 * config.windowNameSuffix.length, config.windowNameSuffix.length) === config.windowNameSuffix
-        &&
-        (config.windowClass === '' || window.resourceClass === config.windowClass)
     );
 }
 function launchTerminal() {
-    log('Calling dbus-app-launcher to launch terminal...');
     callDBus(
         'nl.dvdgiessen.dbusapplauncher',
         '/nl/dvdgiessen/DBusAppLauncher',
         'nl.dvdgiessen.dbusapplauncher.Exec',
         'Cmd',
-        config.launchCommand,
+        config.launchCommand
     );
 }
 
@@ -59,13 +51,13 @@ let currentTerminal = null;
 
 // Callback for hiding the terminal if focus is lost
 function onCurrentTerminalActiveChanged() {
-    if (currentTerminal !== null && !currentTerminal.active && !currentTerminal.minimized) {
-        log('Current terminal window lost focus, hiding.');
+    if (currentTerminal !== null && !currentTerminal.active && config.autoHideOnFocusLost) {
         hideTerminal(currentTerminal);
     }
 }
+
+// Callback for when the current terminal window is closed
 function onCurrentTerminalWindowClosed(_topLevel, _deleted) {
-    log('Current terminal window was closed.');
     currentTerminal = null;
 }
 
@@ -78,7 +70,6 @@ function setTerminal(window) {
 function getTerminal() {
     if (currentTerminal !== null) {
         if (currentTerminal.deleted || !isTerminal(currentTerminal)) {
-            log('Current terminal no longer exists or qualifies:', currentTerminal);
             currentTerminal = null;
         }
     }
@@ -86,7 +77,6 @@ function getTerminal() {
         // Fallback: try to find terminal amongst open windows
         for (const window of workspace.windowList()) {
             if (isTerminal(window)) {
-                log('Found terminal amongst open windows:', window);
                 setTerminal(window);
                 break;
             }
@@ -98,13 +88,11 @@ function getTerminal() {
 // Handle window added and removed events
 function onWindowAdded(window) {
     if (currentTerminal === null && isTerminal(window)) {
-        log('Setting new window as current terminal:', window);
         setTerminal(window);
     }
 }
 function onWindowRemoved(window) {
     if (currentTerminal === window) {
-        log('Current terminal window was removed.');
         currentTerminal = null;
     }
 }
@@ -115,16 +103,13 @@ workspace.windowRemoved.connect(onWindowRemoved);
 function toggleTerminal() {
     const window = getTerminal();
     if (!window) {
-        log('Hotkey triggered without current terminal.');
         launchTerminal();
     } else {
         if (window.minimized) {
-            log('Hotkey triggered, showing terminal.');
             showTerminal(window);
         } else {
-            log('Hotkey triggered, hiding terminal.');
             hideTerminal(window);
         }
-    }
+	}
 }
 registerShortcut('ToggleTerminal', 'Toggle Terminal', 'Meta+`', toggleTerminal);
