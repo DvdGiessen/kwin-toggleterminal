@@ -5,6 +5,7 @@ const defaults = [{
     windowNamePrefix: '',
     windowNameSuffix: '',
     windowClass: 'foot',
+    hideOnFocusLoss: true,
     launchCommand: '/usr/bin/foot',
 }];
 
@@ -31,6 +32,7 @@ function loadConfiguration() {
             windowNamePrefix: loadConfigString(i, 'windowNamePrefix'),
             windowNameSuffix: loadConfigString(i, 'windowNameSuffix'),
             windowClass: loadConfigString(i, 'windowClass'),
+            hideOnFocusLoss: loadConfigBoolean(i, 'hideOnFocusLoss'),
             launchCommand: loadConfigString(i, 'launchCommand'),
         });
     }
@@ -95,7 +97,7 @@ let currentWindows = new Array(MAX_PROGRAMS).fill(null);
 
 // Callback for hiding the window if focus is lost
 function onCurrentWindowActiveChanged(i) {
-    if (currentWindows[i] !== null && !currentWindows[i].active && !currentWindows[i].minimized) {
+    if (config[i].hideOnFocusLoss && currentWindows[i] !== null && !currentWindows[i].active && !currentWindows[i].minimized) {
         log(`Current window for program ${i} lost focus, hiding.`);
         hideWindow(currentWindows[i]);
     }
@@ -170,7 +172,7 @@ function toggleProgram(i) {
         log(`Hotkey ${i} triggered without current window.`);
         launchProgram(i);
     } else {
-        if (window.minimized) {
+        if (!config[i].hideOnFocusLoss || window.minimized) {
             log(`Hotkey ${i} triggered, showing window.`);
             showWindow(window);
         } else {

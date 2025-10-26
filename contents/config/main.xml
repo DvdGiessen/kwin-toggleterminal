@@ -14,6 +14,10 @@
             <label>Exact window class used for detecting program #0</label>
             <default>foot</default>
         </entry>
+        <entry name="0_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #0 when focus is lost</label>
+            <default>true</default>
+        </entry>
         <entry name="0_launchCommand" type="String">
             <label>Command for launching program #0 if the window can not be found</label>
             <default>/usr/bin/foot</default>
@@ -29,6 +33,10 @@
         <entry name="1_windowClass" type="String">
             <label>Exact window class used for detecting program #1</label>
             <default></default>
+        </entry>
+        <entry name="1_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #1 when focus is lost</label>
+            <default>false</default>
         </entry>
         <entry name="1_launchCommand" type="String">
             <label>Command for launching program #1 if the window can not be found</label>
@@ -46,6 +54,10 @@
             <label>Exact window class used for detecting program #2</label>
             <default></default>
         </entry>
+        <entry name="2_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #2 when focus is lost</label>
+            <default>false</default>
+        </entry>
         <entry name="2_launchCommand" type="String">
             <label>Command for launching program #2 if the window can not be found</label>
             <default></default>
@@ -61,6 +73,10 @@
         <entry name="3_windowClass" type="String">
             <label>Exact window class used for detecting program #3</label>
             <default></default>
+        </entry>
+        <entry name="3_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #3 when focus is lost</label>
+            <default>false</default>
         </entry>
         <entry name="3_launchCommand" type="String">
             <label>Command for launching program #3 if the window can not be found</label>
@@ -78,6 +94,10 @@
             <label>Exact window class used for detecting program #4</label>
             <default></default>
         </entry>
+        <entry name="4_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #4 when focus is lost</label>
+            <default>false</default>
+        </entry>
         <entry name="4_launchCommand" type="String">
             <label>Command for launching program #4 if the window can not be found</label>
             <default></default>
@@ -93,6 +113,10 @@
         <entry name="5_windowClass" type="String">
             <label>Exact window class used for detecting program #5</label>
             <default></default>
+        </entry>
+        <entry name="5_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #5 when focus is lost</label>
+            <default>false</default>
         </entry>
         <entry name="5_launchCommand" type="String">
             <label>Command for launching program #5 if the window can not be found</label>
@@ -110,6 +134,10 @@
             <label>Exact window class used for detecting program #6</label>
             <default></default>
         </entry>
+        <entry name="6_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #6 when focus is lost</label>
+            <default>false</default>
+        </entry>
         <entry name="6_launchCommand" type="String">
             <label>Command for launching program #6 if the window can not be found</label>
             <default></default>
@@ -125,6 +153,10 @@
         <entry name="7_windowClass" type="String">
             <label>Exact window class used for detecting program #7</label>
             <default></default>
+        </entry>
+        <entry name="7_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #7 when focus is lost</label>
+            <default>false</default>
         </entry>
         <entry name="7_launchCommand" type="String">
             <label>Command for launching program #7 if the window can not be found</label>
@@ -142,6 +174,10 @@
             <label>Exact window class used for detecting program #8</label>
             <default></default>
         </entry>
+        <entry name="8_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #8 when focus is lost</label>
+            <default>false</default>
+        </entry>
         <entry name="8_launchCommand" type="String">
             <label>Command for launching program #8 if the window can not be found</label>
             <default></default>
@@ -157,6 +193,10 @@
         <entry name="9_windowClass" type="String">
             <label>Exact window class used for detecting program #9</label>
             <default></default>
+        </entry>
+        <entry name="9_hideOnFocusLoss" type="bool">
+            <label>Automatically hide program #9 when focus is lost</label>
+            <default>false</default>
         </entry>
         <entry name="9_launchCommand" type="String">
             <label>Command for launching program #9 if the window can not be found</label>

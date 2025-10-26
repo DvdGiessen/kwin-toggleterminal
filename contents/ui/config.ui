@@ -76,11 +76,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_0_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_0_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -163,11 +183,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_1_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_1_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -250,11 +290,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_2_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_2_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -337,11 +397,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_3_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_3_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -424,11 +504,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_4_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_4_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -511,11 +611,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_5_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_5_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -598,11 +718,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_6_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_6_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -685,11 +825,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_7_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_7_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -772,11 +932,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_8_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_8_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
@@ -859,11 +1039,31 @@
                             <item row="6" column="0">
                                 <widget class="QLabel">
                                     <property name="text">
-                                        <string>Launch command</string>
+                                        <string>Hide on focus loss</string>
                                     </property>
                                 </widget>
                             </item>
                             <item row="7" column="0">
+                                <widget class="QCheckBox" name="kcfg_9_hideOnFocusLoss">
+                                    <property name="toolTip">
+                                        <string>Automatically hide the window when focus is lost.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Hide on focus loss</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="8" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="9" column="0">
                                 <widget class="QLineEdit" name="kcfg_9_launchCommand">
                                     <property name="toolTip">
                                         <string>Command for launching the terminal application if the window can not be found.</string>
