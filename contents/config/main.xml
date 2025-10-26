@@ -2,21 +2,165 @@
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name=""/>
     <group name="">
-        <entry name="windowNamePrefix" type="String">
-            <label>Prefix of the window name used for detecting the terminal</label>
+        <entry name="0_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #0</label>
+            <default></default>
+        </entry>
+        <entry name="0_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #0</label>
+            <default></default>
+        </entry>
+        <entry name="0_windowClass" type="String">
+            <label>Exact window class used for detecting program #0</label>
             <default>foot</default>
         </entry>
-        <entry name="windowNameSuffix" type="String">
-            <label>Suffix of the window name used for detecting the terminal</label>
-            <default></default>
-        </entry>
-        <entry name="windowClass" type="String">
-            <label>Exact window class used for detecting the terminal</label>
-            <default></default>
-        </entry>
-        <entry name="launchCommand" type="String">
-            <label>Command for launching the terminal application if the window can not be found</label>
+        <entry name="0_launchCommand" type="String">
+            <label>Command for launching program #0 if the window can not be found</label>
             <default>/usr/bin/foot</default>
+        </entry>
+        <entry name="1_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #1</label>
+            <default></default>
+        </entry>
+        <entry name="1_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #1</label>
+            <default></default>
+        </entry>
+        <entry name="1_windowClass" type="String">
+            <label>Exact window class used for detecting program #1</label>
+            <default></default>
+        </entry>
+        <entry name="1_launchCommand" type="String">
+            <label>Command for launching program #1 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="2_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #2</label>
+            <default></default>
+        </entry>
+        <entry name="2_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #2</label>
+            <default></default>
+        </entry>
+        <entry name="2_windowClass" type="String">
+            <label>Exact window class used for detecting program #2</label>
+            <default></default>
+        </entry>
+        <entry name="2_launchCommand" type="String">
+            <label>Command for launching program #2 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="3_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #3</label>
+            <default></default>
+        </entry>
+        <entry name="3_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #3</label>
+            <default></default>
+        </entry>
+        <entry name="3_windowClass" type="String">
+            <label>Exact window class used for detecting program #3</label>
+            <default></default>
+        </entry>
+        <entry name="3_launchCommand" type="String">
+            <label>Command for launching program #3 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="4_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #4</label>
+            <default></default>
+        </entry>
+        <entry name="4_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #4</label>
+            <default></default>
+        </entry>
+        <entry name="4_windowClass" type="String">
+            <label>Exact window class used for detecting program #4</label>
+            <default></default>
+        </entry>
+        <entry name="4_launchCommand" type="String">
+            <label>Command for launching program #4 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="5_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #5</label>
+            <default></default>
+        </entry>
+        <entry name="5_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #5</label>
+            <default></default>
+        </entry>
+        <entry name="5_windowClass" type="String">
+            <label>Exact window class used for detecting program #5</label>
+            <default></default>
+        </entry>
+        <entry name="5_launchCommand" type="String">
+            <label>Command for launching program #5 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="6_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #6</label>
+            <default></default>
+        </entry>
+        <entry name="6_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #6</label>
+            <default></default>
+        </entry>
+        <entry name="6_windowClass" type="String">
+            <label>Exact window class used for detecting program #6</label>
+            <default></default>
+        </entry>
+        <entry name="6_launchCommand" type="String">
+            <label>Command for launching program #6 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="7_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #7</label>
+            <default></default>
+        </entry>
+        <entry name="7_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #7</label>
+            <default></default>
+        </entry>
+        <entry name="7_windowClass" type="String">
+            <label>Exact window class used for detecting program #7</label>
+            <default></default>
+        </entry>
+        <entry name="7_launchCommand" type="String">
+            <label>Command for launching program #7 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="8_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #8</label>
+            <default></default>
+        </entry>
+        <entry name="8_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #8</label>
+            <default></default>
+        </entry>
+        <entry name="8_windowClass" type="String">
+            <label>Exact window class used for detecting program #8</label>
+            <default></default>
+        </entry>
+        <entry name="8_launchCommand" type="String">
+            <label>Command for launching program #8 if the window can not be found</label>
+            <default></default>
+        </entry>
+        <entry name="9_windowNamePrefix" type="String">
+            <label>Prefix of the window name used for detecting program #9</label>
+            <default></default>
+        </entry>
+        <entry name="9_windowNameSuffix" type="String">
+            <label>Suffix of the window name used for detecting program #9</label>
+            <default></default>
+        </entry>
+        <entry name="9_windowClass" type="String">
+            <label>Exact window class used for detecting program #9</label>
+            <default></default>
+        </entry>
+        <entry name="9_launchCommand" type="String">
+            <label>Command for launching program #9 if the window can not be found</label>
+            <default></default>
         </entry>
     </group>
 </kcfg>

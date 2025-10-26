@@ -2,85 +2,882 @@
 <ui version="4.0">
     <class>KWin::ToggleTerminalConfigForm</class>
     <widget class="QWidget" name="KWin::ToggleTerminalConfigForm">
-        <layout class="QGridLayout">
-            <item row="0" column="0">
-                <widget class="QLabel">
-                    <property name="text">
-                        <string>Window name prefix</string>
+        <layout class="QVBoxLayout">
+            <item>
+                <widget class="QTabWidget">
+                    <property name="currentIndex">
+                        <number>0</number>
                     </property>
-                </widget>
-            </item>
-            <item row="1" column="0">
-                <widget class="QLineEdit" name="kcfg_windowNamePrefix">
-                    <property name="toolTip">
-                        <string>Prefix of the window name used for detecting the terminal.</string>
-                    </property>
-                    <property name="statusTip">
-                        <string>Window name prefix</string>
-                    </property>
-                    <property name="whatsThis">
-                        <string>Window name prefix</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="2" column="0">
-                <widget class="QLabel">
-                    <property name="text">
-                        <string>Window name suffix</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="3" column="0">
-                <widget class="QLineEdit" name="kcfg_windowNameSuffix">
-                    <property name="toolTip">
-                        <string>Suffix of the window name used for detecting the terminal.</string>
-                    </property>
-                    <property name="statusTip">
-                        <string>Window name suffix</string>
-                    </property>
-                    <property name="whatsThis">
-                        <string>Window name suffix</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="4" column="0">
-                <widget class="QLabel">
-                    <property name="text">
-                        <string>Window class</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="5" column="0">
-                <widget class="QLineEdit" name="kcfg_windowClassName">
-                    <property name="toolTip">
-                        <string>Exact window class used for detecting the terminal.</string>
-                    </property>
-                    <property name="statusTip">
-                        <string>Window class</string>
-                    </property>
-                    <property name="whatsThis">
-                        <string>Window class</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="6" column="0">
-                <widget class="QLabel">
-                    <property name="text">
-                        <string>Launch command</string>
-                    </property>
-                </widget>
-            </item>
-            <item row="7" column="0">
-                <widget class="QLineEdit" name="kcfg_launchCommand">
-                    <property name="toolTip">
-                        <string>Command for launching the terminal application if the window can not be found.</string>
-                    </property>
-                    <property name="statusTip">
-                        <string>Launch command</string>
-                    </property>
-                    <property name="whatsThis">
-                        <string>Launch command</string>
-                    </property>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #0</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_0_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_0_windowNameSuffix">windowClass
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_0_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_0_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #1</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_1_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_1_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_1_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_1_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #2</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_2_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_2_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_2_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_2_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #3</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_3_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_3_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_3_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_3_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #4</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_4_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_4_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_4_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_4_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #5</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_5_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_5_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_5_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_5_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #6</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_6_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_6_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_6_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_6_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #7</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_7_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_7_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_7_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_7_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #8</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_8_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_8_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_8_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_8_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                    <widget class="QWidget">
+                        <attribute name="title">
+                            <string>Hotkey #9</string>
+                        </attribute>
+                        <layout class="QGridLayout">
+                            <item row="0" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0">
+                                <widget class="QLineEdit" name="kcfg_9_windowNamePrefix">
+                                    <property name="toolTip">
+                                        <string>Prefix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name prefix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="3" column="0">
+                                <widget class="QLineEdit" name="kcfg_9_windowNameSuffix">
+                                    <property name="toolTip">
+                                        <string>Suffix of the window name used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window name suffix</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="0">
+                                <widget class="QLineEdit" name="kcfg_9_windowClass">
+                                    <property name="toolTip">
+                                        <string>Exact window class used for detecting the terminal.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Window class</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Window class</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QLabel">
+                                    <property name="text">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="7" column="0">
+                                <widget class="QLineEdit" name="kcfg_9_launchCommand">
+                                    <property name="toolTip">
+                                        <string>Command for launching the terminal application if the window can not be found.</string>
+                                    </property>
+                                    <property name="statusTip">
+                                        <string>Launch command</string>
+                                    </property>
+                                    <property name="whatsThis">
+                                        <string>Launch command</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
                 </widget>
             </item>
         </layout>

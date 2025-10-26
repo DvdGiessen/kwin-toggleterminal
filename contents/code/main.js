@@ -1,48 +1,84 @@
 // Configuration
-const config = {
-    windowNamePrefix: null,
-    windowNameSuffix: null,
-    windowClass: null,
-    launchCommand: null,
-};
+const MAX_PROGRAMS = 10;
+const config = [];
+const defaults = [{
+    windowNamePrefix: '',
+    windowNameSuffix: '',
+    windowClass: 'foot',
+    launchCommand: '/usr/bin/foot',
+}];
 
 function log(...data) {
     console.log('[ToggleTerminal]', ...data);
 }
 
+function loadConfigString(i, key) {
+    return readConfig(`${i}_${key}`, i < defaults.length ? defaults[i][key] : '').toString();
+}
+
+function loadConfigBoolean(i, key) {
+    const value = readConfig(`${i}_${key}`, i < defaults.length ? defaults[i][key] : false);
+    if (typeof value === 'boolean') {
+        return value;
+    }
+    return value.toBool();
+}
+
 function loadConfiguration() {
-    config.windowNamePrefix = readConfig('windowNamePrefix', 'foot').toString();
-    config.windowNameSuffix = readConfig('windowNameSuffix', '').toString();
-    config.windowClass = readConfig('windowClass', '').toString();
-    config.launchCommand = readConfig('launchCommand', '/usr/bin/foot').toString();
+    config.length = 0;
+    for (let i = 0; i < MAX_PROGRAMS; i++) {
+        config.push({
+            windowNamePrefix: loadConfigString(i, 'windowNamePrefix'),
+            windowNameSuffix: loadConfigString(i, 'windowNameSuffix'),
+            windowClass: loadConfigString(i, 'windowClass'),
+            launchCommand: loadConfigString(i, 'launchCommand'),
+        });
+    }
     log('Configuration loaded:', JSON.stringify(config));
 }
 options.configChanged.connect(loadConfiguration);
 loadConfiguration();
 
-// Helper functions for detecting and launching terminal based on configuration
-function isTerminal(window) {
-    return (
-        window.caption.substr(0, config.windowNamePrefix.length) === config.windowNamePrefix
-        &&
-        window.caption.substr(-1 * config.windowNameSuffix.length, config.windowNameSuffix.length) === config.windowNameSuffix
-        &&
-        (config.windowClass === '' || window.resourceClass === config.windowClass)
-    );
+// Helper functions for detecting and launching programs based on configuration
+function matchProgram(window) {
+    for (let i = 0; i < MAX_PROGRAMS; i++) {
+        if (
+            (
+                config[i].windowNamePrefix !== ''
+                ||
+                config[i].windowNameSuffix !== ''
+                ||
+                config[i].windowClass !== ''
+            )
+            &&
+            window.caption.substr(0, config[i].windowNamePrefix.length) === config[i].windowNamePrefix
+            &&
+            window.caption.substr(-1 * config[i].windowNameSuffix.length, config[i].windowNameSuffix.length) === config[i].windowNameSuffix
+            &&
+            (config[i].windowClass === '' || window.resourceClass === config[i].windowClass)
+        ) {
+            return i;
+        }
+    }
+    return null;
 }
-function launchTerminal() {
-    log('Calling dbus-app-launcher to launch terminal...');
-    callDBus(
-        'nl.dvdgiessen.dbusapplauncher',
-        '/nl/dvdgiessen/DBusAppLauncher',
-        'nl.dvdgiessen.dbusapplauncher.Exec',
-        'Cmd',
-        config.launchCommand,
-    );
+function launchProgram(i) {
+    if (config[i].launchCommand) {
+        log(`Calling dbus-app-launcher to launch program ${i}: ${config[i].launchCommand}`);
+        callDBus(
+            'nl.dvdgiessen.dbusapplauncher',
+            '/nl/dvdgiessen/DBusAppLauncher',
+            'nl.dvdgiessen.dbusapplauncher.Exec',
+            'Cmd',
+            config[i].launchCommand,
+        );
+    } else {
+        log(`Cannot launch program ${i} because its launch command is not configured!`);
+    }
 }
 
-// Functions for showing / hiding terminal
-function showTerminal(window) {
+// Functions for showing / hiding windows
+function showWindow(window) {
     const windowWasOnAllDesktops = window.onAllDesktops;
     workspace.sendClientToScreen(window, workspace.activeScreen);
     window.onAllDesktops = true;
@@ -50,82 +86,105 @@ function showTerminal(window) {
     workspace.activeWindow = window;
     window.onAllDesktops = windowWasOnAllDesktops;
 }
-function hideTerminal(window) {
+function hideWindow(window) {
     window.minimized = true;
 }
 
-// State: currently detected terminal
-let currentTerminal = null;
+// State: currently detected window for each configured program
+let currentWindows = new Array(MAX_PROGRAMS).fill(null);
 
-// Callback for hiding the terminal if focus is lost
-function onCurrentTerminalActiveChanged() {
-    if (currentTerminal !== null && !currentTerminal.active && !currentTerminal.minimized) {
-        log('Current terminal window lost focus, hiding.');
-        hideTerminal(currentTerminal);
+// Callback for hiding the window if focus is lost
+function onCurrentWindowActiveChanged(i) {
+    if (currentWindows[i] !== null && !currentWindows[i].active && !currentWindows[i].minimized) {
+        log(`Current window for program ${i} lost focus, hiding.`);
+        hideWindow(currentWindows[i]);
     }
 }
-function onCurrentTerminalWindowClosed(_topLevel, _deleted) {
-    log('Current terminal window was closed.');
-    currentTerminal = null;
+
+// Callback for removing the currently set window once closed
+function onCurrentWindowClosed(i) {
+    log(`Current window for program ${i} was closed.`);
+    currentWindows[i] = null;
 }
 
-// Getters/setters for the currently detected terminal
-function setTerminal(window) {
-    currentTerminal = window;
-    currentTerminal.activeChanged.connect(onCurrentTerminalActiveChanged);
-    currentTerminal.closed.connect(onCurrentTerminalWindowClosed);
+// Getters/setters for the currently detected window for a configured program
+function setCurrentWindow(i, window) {
+    currentWindows[i] = window;
+    currentWindows[i].activeChanged.connect(() => onCurrentWindowActiveChanged(i));
+    currentWindows[i].closed.connect((_topLevel, _deleted) => onCurrentWindowClosed(i));
 }
-function getTerminal() {
-    if (currentTerminal !== null) {
-        if (currentTerminal.deleted || !isTerminal(currentTerminal)) {
-            log('Current terminal no longer exists or qualifies:', currentTerminal);
-            currentTerminal = null;
+function getCurrentWindow(i) {
+    if (currentWindows[i] !== null) {
+        if (currentWindows[i].deleted || matchProgram(currentWindows[i]) != i) {
+            log(`Current window for program ${i} no longer exists or qualifies:`, currentWindows[i]);
+            currentWindows = null;
         }
     }
-    if (currentTerminal === null) {
-        // Fallback: try to find terminal amongst open windows
+    if (
+        currentWindows[i] === null
+        &&
+        (
+            config[i].windowNamePrefix !== ''
+            ||
+            config[i].windowNameSuffix !== ''
+            ||
+            config[i].windowClass !== ''
+        )
+    ) {
+        // Fallback: try to find program amongst open windows
         for (const window of workspace.windowList()) {
-            if (isTerminal(window)) {
-                log('Found terminal amongst open windows:', window);
-                setTerminal(window);
+            if (matchProgram(window) === i) {
+                log(`Found program ${i} amongst open windows:`, window);
+                setCurrentWindow(i, window);
                 break;
             }
         }
     }
-    return currentTerminal;
+    return currentWindows[i];
 }
 
 // Handle window added and removed events
 function onWindowAdded(window) {
-    if (currentTerminal === null && isTerminal(window)) {
-        log('Setting new window as current terminal:', window);
-        setTerminal(window);
-        showTerminal(window);
+    const i = matchProgram(window);
+    if (i !== null && currentWindows[i] === null) {
+        log(`Setting new window as current for program ${i}:`, window);
+        setCurrentWindow(i, window);
+        showWindow(window);
     }
 }
 function onWindowRemoved(window) {
-    if (currentTerminal === window) {
-        log('Current terminal window was removed.');
-        currentTerminal = null;
+    for (let i = 0; i < MAX_PROGRAMS; i++) {
+        if (currentWindows[i] === window) {
+            log(`Current window for program ${i} was removed.`);
+            currentWindows[i] = null;
+        }
     }
 }
 workspace.windowAdded.connect(onWindowAdded);
 workspace.windowRemoved.connect(onWindowRemoved);
 
 // Callback for the terminal hotkey
-function toggleTerminal() {
-    const window = getTerminal();
+function toggleProgram(i) {
+    const window = getCurrentWindow(i);
     if (!window) {
-        log('Hotkey triggered without current terminal.');
-        launchTerminal();
+        log(`Hotkey ${i} triggered without current window.`);
+        launchProgram(i);
     } else {
         if (window.minimized) {
-            log('Hotkey triggered, showing terminal.');
-            showTerminal(window);
+            log(`Hotkey ${i} triggered, showing window.`);
+            showWindow(window);
         } else {
-            log('Hotkey triggered, hiding terminal.');
-            hideTerminal(window);
+            log(`Hotkey ${i} triggered, hiding window.`);
+            hideWindow(window);
         }
     }
 }
-registerShortcut('ToggleTerminal', 'Toggle Terminal', 'Meta+`', toggleTerminal);
+
+for (let i = 0; i < MAX_PROGRAMS; i++) {
+    registerShortcut(
+        `ToggleTerminal_${i}`,
+        `Toggle Terminal hotkey #${i}`,
+        'Meta+`',
+        () => toggleProgram(i)
+    );
+}

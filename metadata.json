@@ -4,7 +4,7 @@
         "Id": "toggleterminal",
         "Version": "2.0.1",
         "Name": "Toggle Terminal",
-        "Description": "Toggles terminal visibility using a hotkey.",
+        "Description": "Toggles program visibility using a hotkey.",
         "Category": "Windows and Tasks",
         "Icon": "preferences-system-windows",
         "Authors": [
