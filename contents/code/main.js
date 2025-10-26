@@ -100,6 +100,7 @@ function onWindowAdded(window) {
     if (currentTerminal === null && isTerminal(window)) {
         log('Setting new window as current terminal:', window);
         setTerminal(window);
+        showTerminal(window);
     }
 }
 function onWindowRemoved(window) {
