@@ -36,7 +36,21 @@ function loadConfiguration() {
             launchCommand: loadConfigString(i, 'launchCommand'),
         });
     }
-    log('Configuration loaded:', JSON.stringify(config));
+    log('Configuration loaded:', config.map((c, i) =>
+        `\n- Program ${i}: ` + (
+            (
+                config[i].windowNamePrefix === ''
+                &&
+                config[i].windowNameSuffix === ''
+                &&
+                config[i].windowClass === ''
+                &&
+                config[i].launchCommand === ''
+            )
+            ? '(not configured)'
+            : Object.entries(c).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ')
+        )
+    ).join(''));
 }
 options.configChanged.connect(loadConfiguration);
 loadConfiguration();
