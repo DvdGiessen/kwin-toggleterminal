@@ -172,7 +172,7 @@ function toggleProgram(i) {
         log(`Hotkey ${i} triggered without current window.`);
         launchProgram(i);
     } else {
-        if (!config[i].hideOnFocusLoss || window.minimized) {
+        if (window.minimized || workspace.activeWindow !== window) {
             log(`Hotkey ${i} triggered, showing window.`);
             showWindow(window);
         } else {
