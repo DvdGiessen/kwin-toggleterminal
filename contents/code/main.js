@@ -1,24 +1,24 @@
 // Configuration
 const MAX_PROGRAMS = 10;
-const config = [];
-const defaults = [{
+const DEFAULTS = [{
     windowNamePrefix: '',
     windowNameSuffix: '',
     windowClass: 'foot',
     hideOnFocusLoss: true,
     launchCommand: '/usr/bin/foot',
 }];
+const config = [];
 
 function log(...data) {
     console.log('[ToggleTerminal]', ...data);
 }
 
 function loadConfigString(i, key) {
-    return readConfig(`${i}_${key}`, i < defaults.length ? defaults[i][key] : '').toString();
+    return readConfig(`${i}_${key}`, i < DEFAULTS.length ? DEFAULTS[i][key] : '').toString();
 }
 
 function loadConfigBoolean(i, key) {
-    const value = readConfig(`${i}_${key}`, i < defaults.length ? defaults[i][key] : false);
+    const value = readConfig(`${i}_${key}`, i < DEFAULTS.length ? DEFAULTS[i][key] : false);
     if (typeof value === 'boolean') {
         return value;
     }
