@@ -119,7 +119,7 @@ function getCurrentWindow(i) {
     if (currentWindows[i] !== null) {
         if (currentWindows[i].deleted || matchProgram(currentWindows[i]) != i) {
             log(`Current window for program ${i} no longer exists or qualifies:`, currentWindows[i]);
-            currentWindows = null;
+            currentWindows[i] = null;
         }
     }
     if (
