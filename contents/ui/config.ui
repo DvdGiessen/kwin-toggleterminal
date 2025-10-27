@@ -1080,6 +1080,19 @@
                     </widget>
                 </widget>
             </item>
+            <item>
+                <widget class="QLabel">
+                    <property name="alignment">
+                        <enum>AlignCenter</enum>
+                    </property>
+                    <property name="openExternalLinks">
+                        <bool>true</bool>
+                    </property>
+                    <property name="text">
+                        <string>&lt;em&gt;Note: Due to &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;bugs.kde.org&#x2F;show_bug.cgi?id&#x3D;463292&quot;&gt;KWin bug 463292&lt;&#x2F;a&gt; you need to disable and re-enable the script for changes to take effect.&lt;&#x2F;em&gt;</string>
+                    </property>
+                </widget>
+            </item>
         </layout>
     </widget>
 </ui>
