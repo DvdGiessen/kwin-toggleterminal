@@ -25,6 +25,16 @@ function loadConfigBoolean(i, key) {
     return value.toBool();
 }
 
+function hasConfiguredMatch(i) {
+    return (
+        config[i].windowNamePrefix !== ''
+        ||
+        config[i].windowNameSuffix !== ''
+        ||
+        config[i].windowClass !== ''
+    );
+}
+
 function loadConfiguration() {
     config.length = 0;
     for (let i = 0; i < MAX_PROGRAMS; i++) {
@@ -38,17 +48,9 @@ function loadConfiguration() {
     }
     log('Configuration loaded:', config.map((c, i) =>
         `\n- Program ${i}: ` + (
-            (
-                config[i].windowNamePrefix === ''
-                &&
-                config[i].windowNameSuffix === ''
-                &&
-                config[i].windowClass === ''
-                &&
-                config[i].launchCommand === ''
-            )
-            ? '(not configured)'
-            : Object.entries(c).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ')
+            (hasConfiguredMatch(i) || config[i].launchCommand !== '')
+            ? Object.entries(c).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ')
+            : '(not configured)'
         )
     ).join(''));
 }
@@ -59,13 +61,7 @@ loadConfiguration();
 function matchProgram(window) {
     for (let i = 0; i < MAX_PROGRAMS; i++) {
         if (
-            (
-                config[i].windowNamePrefix !== ''
-                ||
-                config[i].windowNameSuffix !== ''
-                ||
-                config[i].windowClass !== ''
-            )
+            hasConfiguredMatch(i)
             &&
             window.caption.substr(0, config[i].windowNamePrefix.length) === config[i].windowNamePrefix
             &&
@@ -136,17 +132,7 @@ function getCurrentWindow(i) {
             currentWindows[i] = null;
         }
     }
-    if (
-        currentWindows[i] === null
-        &&
-        (
-            config[i].windowNamePrefix !== ''
-            ||
-            config[i].windowNameSuffix !== ''
-            ||
-            config[i].windowClass !== ''
-        )
-    ) {
+    if (currentWindows[i] === null && hasConfiguredMatch(i)) {
         // Fallback: try to find program amongst open windows
         for (const window of workspace.windowList()) {
             if (matchProgram(window) === i) {
