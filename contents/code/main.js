@@ -7,17 +7,16 @@ const DEFAULTS = [{
     hideOnFocusLoss: true,
     launchCommand: '/usr/bin/foot',
 }];
-const config = [];
 
 function log(...data) {
     console.log('[ToggleTerminal]', ...data);
 }
 
-function loadConfigString(i, key) {
+function configString(i, key) {
     return readConfig(`${i}_${key}`, i < DEFAULTS.length ? DEFAULTS[i][key] : '').toString();
 }
 
-function loadConfigBoolean(i, key) {
+function configBoolean(i, key) {
     const value = readConfig(`${i}_${key}`, i < DEFAULTS.length ? DEFAULTS[i][key] : false);
     if (typeof value === 'boolean') {
         return value;
@@ -27,47 +26,53 @@ function loadConfigBoolean(i, key) {
 
 function hasConfiguredMatch(i) {
     return (
-        config[i].windowNamePrefix !== ''
+        configString(i, 'windowNamePrefix') !== ''
         ||
-        config[i].windowNameSuffix !== ''
+        configString(i, 'windowNameSuffix') !== ''
         ||
-        config[i].windowClass !== ''
+        configString(i, 'windowClass') !== ''
     );
 }
 
-function loadConfiguration() {
-    config.length = 0;
-    for (let i = 0; i < MAX_PROGRAMS; i++) {
-        config.push({
-            windowNamePrefix: loadConfigString(i, 'windowNamePrefix'),
-            windowNameSuffix: loadConfigString(i, 'windowNameSuffix'),
-            windowClass: loadConfigString(i, 'windowClass'),
-            hideOnFocusLoss: loadConfigBoolean(i, 'hideOnFocusLoss'),
-            launchCommand: loadConfigString(i, 'launchCommand'),
-        });
-    }
-    log('Configuration loaded:', config.map((c, i) =>
+function printConfiguration() {
+    log('Current configuration:', [...Array(MAX_PROGRAMS).keys()].map((i) =>
         `\n- Program ${i}: ` + (
-            (hasConfiguredMatch(i) || config[i].launchCommand !== '')
-            ? Object.entries(c).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ')
+            (hasConfiguredMatch(i) || configString(i, 'launchCommand') !== '')
+            ? [
+                'windowNamePrefix',
+                'windowNameSuffix',
+                'windowClass',
+                'hideOnFocusLoss',
+                'launchCommand',
+            ].map((k) => `${k}=${JSON.stringify(configString(i, k))}`).join(', ')
             : '(not configured)'
         )
     ).join(''));
 }
-options.configChanged.connect(loadConfiguration);
-loadConfiguration();
+
+options.configChanged.connect(printConfiguration);
+printConfiguration();
 
 // Helper functions for detecting and launching programs based on configuration
 function matchProgram(window) {
     for (let i = 0; i < MAX_PROGRAMS; i++) {
+        const windowNamePrefix = configString(i, 'windowNamePrefix');
+        const windowNameSuffix = configString(i, 'windowNameSuffix');
+        const windowClass = configString(i, 'windowClass');
         if (
-            hasConfiguredMatch(i)
+            (
+                windowNamePrefix !== ''
+                ||
+                windowNameSuffix !== ''
+                ||
+                windowClass !== ''
+            )
             &&
-            window.caption.substr(0, config[i].windowNamePrefix.length) === config[i].windowNamePrefix
+            window.caption.substr(0, windowNamePrefix.length) === windowNamePrefix
             &&
-            window.caption.substr(-1 * config[i].windowNameSuffix.length, config[i].windowNameSuffix.length) === config[i].windowNameSuffix
+            window.caption.substr(-1 * windowNameSuffix.length, windowNameSuffix.length) === windowNameSuffix
             &&
-            (config[i].windowClass === '' || window.resourceClass === config[i].windowClass)
+            (windowClass === '' || window.resourceClass === windowClass)
         ) {
             return i;
         }
@@ -75,17 +80,18 @@ function matchProgram(window) {
     return null;
 }
 function launchProgram(i) {
-    if (config[i].launchCommand) {
-        log(`Calling dbus-app-launcher to launch program ${i}: ${config[i].launchCommand}`);
+    const launchCommand = configString(i, 'launchCommand');
+    if (launchCommand === '') {
+        log(`Cannot launch program ${i} because its launch command is not configured!`);
+    } else {
+        log(`Calling dbus-app-launcher to launch program ${i}: ${launchCommand}`);
         callDBus(
             'nl.dvdgiessen.dbusapplauncher',
             '/nl/dvdgiessen/DBusAppLauncher',
             'nl.dvdgiessen.dbusapplauncher.Exec',
             'Cmd',
-            config[i].launchCommand,
+            launchCommand,
         );
-    } else {
-        log(`Cannot launch program ${i} because its launch command is not configured!`);
     }
 }
 
@@ -107,7 +113,7 @@ let currentWindows = new Array(MAX_PROGRAMS).fill(null);
 
 // Callback for hiding the window if focus is lost
 function onCurrentWindowActiveChanged(i) {
-    if (config[i].hideOnFocusLoss && currentWindows[i] !== null && !currentWindows[i].active && !currentWindows[i].minimized) {
+    if (configBoolean(i, 'hideOnFocusLoss') && currentWindows[i] !== null && !currentWindows[i].active && !currentWindows[i].minimized) {
         log(`Current window for program ${i} lost focus, hiding.`);
         hideWindow(currentWindows[i]);
     }
