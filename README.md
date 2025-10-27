@@ -47,8 +47,8 @@ and searching for the "Toggle Terminal" action in the KWin category. Configure
 any custom shortcut you like.
 
 (Note: KWin doesn't always correctly detect changes to the configuration. If
-your changes are not applied, run `qdbus org.kde.KWin /KWin reconfigure` or log
-out and in again to restart KWin.)
+your changes are not applied, run `qdbus org.kde.KWin /KWin reconfigure`,
+disable and re-enable the script, or log out and in again to restart KWin.)
 
 ### Via the command line
 
@@ -111,6 +111,14 @@ A few recommendations to make it more seamless:
   without losing your session.
 
 ## Troubleshooting
+
+- To see what the script is doing and what might be going wrong, you can view
+  the logs by running `journalctl -fg ToggleTerminal`.
+
+- Due to [KWin bug 463292](https://bugs.kde.org/show_bug.cgi?id=463292) changes
+  to the configuration do not get applied immediately. Either disable and then
+  re-enable the script, run `qdbus org.kde.KWin /KWin reconfigure` to force KWin
+  to reload its configuration, or restart KWin by logging out and in again.
 
 - If your configured program is not starting, check that the `dbus-app-launcher`
   service is working by invoking it directly to launch your program:
